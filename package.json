@@ -1,0 +1,27 @@
+{
+  "name": "express-crud",
+  "version": "1.0.0",
+  "description": "crud operation using nodejs, expressa and mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joshimcse/express-crud.git"
+  },
+  "keywords": [
+    "express",
+    "crud",
+    "rest",
+    "api",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Joshim Uddin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joshimcse/express-crud/issues"
+  },
+  "homepage": "https://github.com/Joshimcse/express-crud#readme"
+}
