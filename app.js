@@ -1,12 +1,13 @@
 /**
  * App.js
  * 
- * @description :: Main App file and Entry point
- * @author Joshim Uddin
+ * @description :: Main App file && Entry point
+ * @author      :: Joshim Uddin
  */
 
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 // set up express app
@@ -16,10 +17,21 @@ const app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json());
+
+
 // initialize routes
-require('./routes/tshirt')(app);
+// require('./routes/users')(app);
+app.use('/api/users', require('./routes/users'));
+
+
 
 // Error handling Middleware
+
+
 
 // listen for request
 const port = process.env.PORT || 6300;
