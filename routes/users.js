@@ -9,15 +9,16 @@
 const router = require('express').Router();
 
 //Load Controller
-const userController = require('../controller/userController');
+const { registerController, loginController, getUserController, getUsersController } = require('../controller/users');
 
 /**
  * @route POST api/users/register
  * @desc Register an user
  * @access Public
  */
-router.post('/register', userController.register);
-router.post('/login', userController.login);
-router.get('/', userController.getUser);
+router.post('/register', registerController);
+router.post('/login', loginController);
+router.get('/:id', getUserController);
+router.get('/', getUsersController)
 
 module.exports = router;
