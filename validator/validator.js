@@ -15,8 +15,7 @@ module.exports = {
     }
 
     if (validator.isEmpty(data.name)) {
-      errors.name = 'Name field is
-       required';
+      errors.name = 'Name field is required';
     }
 
     if (validator.isEmpty(data.email)) {
@@ -39,7 +38,7 @@ module.exports = {
     }
 
     if (!validator.equals(data.password, data.password2)) {
-      errors.name = 'Password must match';
+      errors.name = 'Password must match.';
     }
 
     return {
