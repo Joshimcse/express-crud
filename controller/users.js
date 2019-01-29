@@ -8,18 +8,24 @@
 
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-const { validateRegisterInput } = require('../validator/validator');
 
 // Load User Model
 const User = require('../models/User');
 
+const {
+  validateRegisterInput
+} = require('../validator/validator');
 
 /**
  * @controller Register
  * @desc register a users to the database...
+ * @return 
  */
 const registerController = (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
+
+  console.log(errors, isValid)
+
   if (!isValid) {
     return res.json(errors)
   }
@@ -50,6 +56,7 @@ const registerController = (req, res) => {
 /**
  * @controller loginController
  * @desc check provided info, If all information is valid then generated a token.
+ * @return 
  */
 const loginController = () => {
   res.status(200).json({ msg: 'login' });
@@ -59,6 +66,7 @@ const loginController = () => {
 /**
  * @controller getUsersController
  * @desc if req is passed auth. then provide all Users 
+ * @return 
  */
 const getUsersController = (req, res) => {
   User.find({}).then(users => {
@@ -72,6 +80,7 @@ const getUsersController = (req, res) => {
 /**
  * @controller getUserController
  * @desc if req is passed auth. then provide all a Single User.
+ * @return 
  */
 const getUserController = (req, res) => {
   User.findById(req.params.id)
